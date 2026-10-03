@@ -1,0 +1,15 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "include": ["**/*.py"],
+  "exclude": [
+    "**/migrations/**",
+    "**/tests/**",
+    "**/__pycache__/**",
+    ".venv/**"
+  ],
+  "extraPaths": ["."],
+  "pyhtonVersion": "3.13.15",
+  "typeCheckingMode": "basic",
+  "reportMissingTypeStubs": false
+}

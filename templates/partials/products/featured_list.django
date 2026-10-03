@@ -1,0 +1,25 @@
+<!-- templates/products/partials/featured_list.html -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for product in products %}
+        <div class="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition duration-300">
+            <figure class="px-4 pt-4">
+                <img src="{{ product.image.url|default:'https://placehold.co/400x300' }}"
+                     alt="{{ product.name }}"
+                     class="rounded-xl h-48 w-full object-cover" />
+            </figure>
+            <div class="card-body p-5">
+                <h3 class="card-title text-base font-bold line-clamp-1">{{ product.title }}</h3>
+                <p class="text-sm text-base-content/70 line-clamp-2">{{ product.description }}</p>
+                <div class="card-actions justify-between items-center mt-4">
+                    <span class="text-lg font-black text-primary">{{ product.price|floatformat:0 }} تومان</span>
+                    {# <a href="{% url 'products:detail' product.slug %}" #}
+                    {#    class="btn btn-primary btn-sm">مشاهده</a> #}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-span-full alert alert-info">
+            <span>در حال حاضر محصول برگزیده‌ای موجود نیست.</span>
+        </div>
+    {% endfor %}
+</div>

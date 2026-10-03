@@ -1,0 +1,14 @@
+{% extends "components/layouts/main_layout.django" %}
+{% block title %}فروشگاه ساده | خانه{% endblock %}
+{% block content %}
+    <!-- Hero Section (DaisyUI) -->
+    <!-- Featured Section با HTMX -->
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-4">جدیدترین محصولات</h2>
+        <div hx-get="{% url 'products:featured_list' %}"
+             hx-trigger="load"
+             hx-swap="innerHTML">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+    </section>
+{% endblock %}

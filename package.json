@@ -1,0 +1,31 @@
+{
+  "name": "simplestore-django-template-alpine-htmx-daisyui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm dlx @tailwindcss/cli -i ./src/input.css -o ./static/css/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzonouz/simplestore-django-template-alpine-htmx-daisyui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pzonouz/simplestore-django-template-alpine-htmx-daisyui/issues"
+  },
+  "homepage": "https://github.com/pzonouz/simplestore-django-template-alpine-htmx-daisyui#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.537",
+    "@iconify/tailwind4": "^1.2.3",
+    "daisyui": "^5.7.47"
+  }
+}
