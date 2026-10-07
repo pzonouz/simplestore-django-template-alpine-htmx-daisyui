@@ -1,0 +1,15 @@
+<tr id="category-row-{{ category.pk }}">
+    <td>
+        <c-data.form_field :field="form.name"
+                           :edit="True" />
+    </td>
+    <td>
+        <c-data.form_field :field="form.parent"
+                           :edit="True" />
+    </td>
+    <td>
+        <c-data.form_field :field="form.description"
+                           :edit="True" />
+    </td>
+    <c-ui.table.edit_actions />
+</tr>

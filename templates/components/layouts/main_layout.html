@@ -2,7 +2,8 @@
 {% block layout_content %}
     {% include "components/navigation/main_navbar.django" %}
     {{ menu_items|json_script:"menu-data" }}
-    {% include "components/navigation/menu.django" %}
+    {% include "components/navigation/desktop_menu.django" %}
+    {% include "components/navigation/mobile_menu.django" %}
     <main class="grow">
         {% block content %}{% endblock %}
     </main>

@@ -11,5 +11,6 @@
   "extraPaths": ["."],
   "pyhtonVersion": "3.13.15",
   "typeCheckingMode": "basic",
-  "reportMissingTypeStubs": false
+  "reportMissingTypeStubs": false,
+  "reportAttributeAccessIssue":false
 }

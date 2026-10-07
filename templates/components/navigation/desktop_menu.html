@@ -1,0 +1,58 @@
+<div x-if="window.innerWidth >= 1024"
+     x-data="{menu: window.innerWidth >= 1024? JSON.parse(document.getElementById('menu-data').textContent):[] }">
+    <!-- Recursive Node Template -->
+    <template id="desktop-menu-node">
+        <li class="relative"
+            x-data="{
+                open: false,
+                hasChildren: Boolean(item.children && item.children.length > 0)
+            }"
+            @mouseenter="open = true"
+            @mouseleave="open = false">
+            <!-- Item with Submenu (Parent) -->
+            <template x-if="hasChildren">
+                <div class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-sky-950 hover:text-sky-50 transition-colors whitespace-nowrap cursor-pointer rounded-md">
+                    <span x-text="item.title"></span>
+                    <span :class="isRoot ? 'icon-[heroicons--chevron-down-20-solid]' : 'icon-[heroicons--chevron-left-20-solid]'"
+                          class="text-lg"></span>
+                </div>
+            </template>
+            <!-- Item without Submenu (Link) -->
+            <template x-if="!hasChildren">
+                <a :href="item.url || '#'"
+                   class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-sky-950 hover:text-sky-50 transition-colors whitespace-nowrap cursor-pointer rounded-md">
+                    <span x-text="item.title"></span>
+                </a>
+            </template>
+            <!-- Recursive Submenu Dropdown -->
+            <template x-if="hasChildren">
+                <ul x-show="open"
+                    x-transition:enter="transition ease-out duration-150"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-100"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+                    :class="isRoot ? 'top-full right-0' : 'top-0 right-full'"
+                    class="absolute flex flex-col min-w-48 bg-white text-sky-950 rounded-md shadow-lg border border-gray-100 py-2 z-50 origin-top-right">
+                    <template x-for="child in item.children"
+                              :key="child.title">
+                        <li x-data="{ item: child, isRoot: false }"
+                            x-html="document.getElementById('desktop-menu-node').innerHTML">
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </li>
+    </template>
+    <!-- Top-Level Root Menu Bar -->
+    <ul style="font-family: yekan"
+        class="hidden lg:flex flex-row justify-start items-center h-16 px-4 bg-gray-50 text-sky-950 rounded-sm w-3/4 mx-auto">
+        <template x-for="item in menu"
+                  :key="item.title">
+            <li x-data="{ item: item, isRoot: true }"
+                x-html="document.getElementById('desktop-menu-node').innerHTML">
+            </li>
+        </template>
+    </ul>
+</div>

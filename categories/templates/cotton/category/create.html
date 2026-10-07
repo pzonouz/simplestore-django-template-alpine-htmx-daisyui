@@ -1,0 +1,23 @@
+<form id="category-create-form"
+      hx-post="{% url 'categories:create' %}"
+      hx-target="#category-table-body"
+      hx-swap="afterbegin"
+      {# hx-on::after-request="this.reset();" #}
+      class="space-y-4">
+    <div class="text-red">{{ form.non_field_errors }}</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <c-data.form_field :field="form.name"
+                           label="نام" />
+        <c-data.form_field :field="form.parent"
+                           label="والد" />
+        <c-data.form_field :field="form.description"
+                           label="توضیح" />
+        <!-- Actions -->
+        <div class="flex justify-end gap-2 pt-2">
+            <button type="button"
+                    class="btn btn-ghost"
+                    @click="open = false">بستن</button>
+            <button type="submit"
+                    class="btn btn-primary">ثبت</button>
+        </div>
+    </form>

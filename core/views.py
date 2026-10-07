@@ -27,4 +27,4 @@ def home(request):
             ],
         },
     ]
-    return render(request, "home.django", context={"menu_items": menu_items})
+    return render(request, "pages/main/home.django", context={"menu_items": menu_items})

@@ -1,0 +1,20 @@
+{% load persian_filters %}
+<div class="container mx-auto p-6 max-w-5xl space-y-6">
+    <!-- Header & Toggle Button -->
+    <c-ui.collapsible>
+        <c-category.create />
+    </c-ui.collapsible>
+    <!-- Table Card -->
+    <div class="overflow-x-auto rounded-box border border-base-300 bg-base-100 shadow-sm mt-4">
+        <table class="table">
+            <c-ui.table.header />
+            <tbody id="category-table-body">
+                {% for category in categories %}
+                    <c-category.row />
+                {% empty %}
+                    <c-ui.empty />
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

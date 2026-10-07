@@ -1,0 +1,15 @@
+<td class="flex items-center gap-2 justify-end">
+    <!-- Inline Edit Trigger -->
+    <button type="button"
+            class="btn btn-primary btn-md"
+            hx-include="closest tr"
+            hx-post="{% url 'categories:edit' category.id %}"
+            hx-target="#category-row-{{ category.id }}"
+            hx-swap="outerHTML">تایید</button>
+    <!-- Delete Modal Trigger (Alpine Event) -->
+    <button type="button"
+            hx-get="{% url 'categories:show' category.id %}"
+            hx-target="#category-row-{{ category.id }}"
+            hx-swap="outerHTML"
+            class="btn btn-ghost btn-md">لغو</button>
+</td>

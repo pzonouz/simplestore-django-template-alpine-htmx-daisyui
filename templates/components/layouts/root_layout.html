@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+{% load persian_filters %}
+<html lang="fa"
+      dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1">
+        <title>{% block title %}فروشگاه ساده | خانه{% endblock %}</title>
+        <link href="{% static "css/output.css" %}"
+              rel="stylesheet">
+        <script src="{% static "js/vendor/alpinejs.min.js" %}"
+                defer></script>
+        <script src="{% static "js/vendor/htmx.min.js" %}"
+                defer></script>
+        {% block extra_script %}
+        {% endblock extra_script %}
+        {% block extra_head %}{% endblock %}
+        <meta name="htmx-config"
+              content='{"responseHandling": [{"code":"...", "swap": true}]}'>
+    </head>
+    <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+        {% block layout_content %}
+        {% endblock layout_content %}
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<td class="flex items-center gap-2 justify-end">
+    <!-- Inline Edit Trigger -->
+    <button type="button"
+            class="btn btn-ghost btn-xs text-info"
+            hx-get="{% url 'categories:edit' category.id %}"
+            hx-target="#category-row-{{ category.id }}"
+            hx-swap="outerHTML">ویرایش</button>
+    <!-- Delete Modal Trigger (Alpine Event) -->
+    <button type="button"
+            class="btn btn-ghost btn-xs text-error"
+            @click="$dispatch('open-delete-modal', { id: '{{ category.id }}', name: '{{ category.name }}' })">
+        حذف
+    </button>
+</td>

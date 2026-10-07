@@ -1,0 +1,10 @@
+{% extends "components/layouts/root_layout.html" %}
+{% block layout_content %}
+    {% include "components/navigation/admin_navbar.html" %}
+    {{ menu_items|json_script:"menu-data" }}
+    {% include "components/navigation/desktop_menu.html" %}
+    <main class="grow">
+        {% block content %}{% endblock %}
+    </main>
+    {% include "components/navigation/admin_footer.html" %}
+{% endblock %}

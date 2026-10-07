@@ -1,0 +1,15 @@
+{% load persian_filters %}
+<tr id="category-row-{{ category.pk }}">
+    <td class="font-medium">{{ category.name }}</td>
+    <td>
+        {% if category.parent %}
+            <span class="font-medium">{{ category.parent.name }}</span>
+        {% else %}
+            <span class="text-base-content/40">—</span>
+        {% endif %}
+    </td>
+    <td class="text-sm text-base-content/70">
+        {{ category.description|default:"—"|truncatechars:100 }}
+    </td>
+    <c-ui.table.actions />
+</tr>
